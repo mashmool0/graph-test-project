@@ -1,0 +1,9 @@
+[
+  {
+    "command_name": "logout",
+    "parameters": {
+      "username": "alihamed",
+      "password": "1234"
+    }
+  }
+]

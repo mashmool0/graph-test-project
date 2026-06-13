@@ -2,15 +2,15 @@
   {
     "command_name": "add_phone_user",
     "parameters": {
-      "username": "phone_user_1",
-      "phone_number": "1111111",
+      "username": "phone_user_9",
+      "phone_number": "0912345",
       "explanation": "friend"
     }
   },
   {
     "command_name": "get_phone_user_by_name",
     "parameters": {
-      "username": "phone_user_1"
+      "username": "phone_user_9"
     }
   }
 ]

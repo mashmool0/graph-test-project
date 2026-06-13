@@ -67,6 +67,8 @@ def logout(command):
 
     """
     from server import online_users
+    print("[INFO] Online Users : ", online_users)
+
     username = command["username"]
     if username in online_users:
         online_users.remove(username)

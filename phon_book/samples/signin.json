@@ -1,0 +1,9 @@
+[
+  {
+    "command_name": "sign_in",
+    "parameters": {
+      "username": "amirmahdi@gmail.com",
+      "password": "1234"
+    }
+  }
+]
