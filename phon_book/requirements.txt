@@ -9,3 +9,4 @@ pyzmq==19.0.1
 six==1.15.0
 zope.event==4.4
 zope.interface==5.1.0
+pytest==8.3.5
