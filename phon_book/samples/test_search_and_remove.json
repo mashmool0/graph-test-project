@@ -1,0 +1,26 @@
+[
+  {
+    "command_name": "add_phone_user",
+    "parameters": {
+      "username": "phone_user_4",
+      "phone_number": "6666666",
+      "explanation": "temp"
+    }
+  },
+  {
+    "command_name": "get_phone_user_by_number",
+    "parameters": {
+      "phone_number": "6666666"
+    }
+  },
+  {
+    "command_name": "remove_phone_user",
+    "parameters": {
+      "username": "phone_user_4"
+    }
+  },
+  {
+    "command_name": "get_all_phone_users",
+    "parameters": {}
+  }
+]

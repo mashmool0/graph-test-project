@@ -1,0 +1,23 @@
+[
+  {
+    "command_name": "sign_up",
+    "parameters": {
+      "username": "admin_test_1",
+      "password": "1234",
+      "email": "admin_test_1@example.com"
+    }
+  },
+  {
+    "command_name": "sign_in",
+    "parameters": {
+      "username": "admin_test_1",
+      "password": "1234"
+    }
+  },
+  {
+    "command_name": "logout",
+    "parameters": {
+      "username": "admin_test_1"
+    }
+  }
+]

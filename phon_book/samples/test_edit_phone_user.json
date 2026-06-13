@@ -1,0 +1,25 @@
+[
+  {
+    "command_name": "add_phone_user",
+    "parameters": {
+      "username": "phone_user_3",
+      "phone_number": "4444444",
+      "explanation": "old"
+    }
+  },
+  {
+    "command_name": "edit_phone_user",
+    "parameters": {
+      "username": "phone_user_3",
+      "phone_number": "4444444",
+      "new_phone_number": "5555555",
+      "new_username": "phone_user_3_updated"
+    }
+  },
+  {
+    "command_name": "get_phone_user_by_name",
+    "parameters": {
+      "username": "phone_user_3_updated"
+    }
+  }
+]
