@@ -44,19 +44,16 @@ class ManagedServer:
             return ""
 
 
-
 def make_isolated_workspace(project_root: Path, tmp_path: Path) -> Path:
     workspace = tmp_path / "phon_book_workspace"
     shutil.copytree(project_root, workspace)
     return workspace
 
 
-
 def remove_db(workdir: Path):
     db_path = workdir / "sab.db"
     if db_path.exists():
         db_path.unlink()
-
 
 
 def start_server(workdir: Path, python_bin: str, ip: str = DEFAULT_IP, port: int = DEFAULT_PORT) -> ManagedServer:
@@ -69,7 +66,6 @@ def start_server(workdir: Path, python_bin: str, ip: str = DEFAULT_IP, port: int
     )
     time.sleep(0.8)
     return ManagedServer(process=proc, workdir=workdir, ip=ip, port=port)
-
 
 
 def send_commands(commands, ip: str = DEFAULT_IP, port: int = DEFAULT_PORT, timeout_ms: int = 3000) -> RequestResult:
