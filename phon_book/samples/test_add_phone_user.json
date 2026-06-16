@@ -8,9 +8,30 @@
     }
   },
   {
+    "command_name": "add_phone_number",
+    "parameters": {
+      "username": "phone_user_2",
+      "phone_number": "3333333"
+    }
+  },
+  {
+    "command_name": "add_phone_number",
+    "parameters": {
+      "username": "phone_user_2",
+      "phone_number": "44444444"
+    }
+  },
+  {
+    "command_name": "add_phone_number",
+    "parameters": {
+      "username": "phone_user_2",
+      "phone_number": "555555"
+    }
+  },
+  {
     "command_name": "get_phone_user_by_name",
     "parameters": {
-      "username": "phone_user_9"
+      "username": "phone_user_2"
     }
   }
 ]
