@@ -34,6 +34,10 @@ class ManagedServer:
             except subprocess.TimeoutExpired:
                 self.process.kill()
                 self.process.wait(timeout=2)
+        time.sleep(0.2)
+
+    def is_alive(self):
+        return self.process.poll() is None
 
     def read_output(self):
         if not self.process.stdout:
@@ -42,6 +46,12 @@ class ManagedServer:
             return self.process.stdout.read()
         except Exception:
             return ""
+
+
+@dataclass
+class ServerSession:
+    server: ManagedServer
+    result: RequestResult
 
 
 def make_isolated_workspace(project_root: Path, tmp_path: Path) -> Path:
@@ -64,7 +74,7 @@ def start_server(workdir: Path, python_bin: str, ip: str = DEFAULT_IP, port: int
         stderr=subprocess.STDOUT,
         text=True,
     )
-    time.sleep(0.8)
+    time.sleep(1.0)
     return ManagedServer(process=proc, workdir=workdir, ip=ip, port=port)
 
 
@@ -83,3 +93,16 @@ def send_commands(commands, ip: str = DEFAULT_IP, port: int = DEFAULT_PORT, time
     finally:
         socket.close(0)
         ctx.term()
+
+
+def run_command_batch(workdir: Path, python_bin: str, commands, ip: str = DEFAULT_IP, port: int = DEFAULT_PORT,
+                      timeout_ms: int = 3000) -> ServerSession:
+    server = start_server(workdir, python_bin, ip=ip, port=port)
+    result = RequestResult(received=False, reply=None)
+    for _ in range(3):
+        result = send_commands(commands, ip=ip, port=port, timeout_ms=timeout_ms)
+        if result.received or not server.is_alive():
+            break
+        time.sleep(0.4)
+    time.sleep(0.4)
+    return ServerSession(server=server, result=result)
