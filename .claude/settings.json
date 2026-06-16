@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(soffice --headless -env:UserInstallation=file:///tmp/lo_profile --convert-to docx:\"MS Word 2007 XML\" --outdir . report.html)",
+      "Bash(unzip -o -q report.docx -d /tmp/docx_check)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}

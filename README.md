@@ -10,6 +10,20 @@ scenarios and test cases, split them into manual and automated, automate the
 deterministic ones in Python, and report the defects found. The application is
 intentionally shipped with bugs — finding and documenting them is the deliverable.
 
+## 👀 Where to look (reviewer's guide)
+
+New here? Start with **`report.md`** (also available as `report.docx`) for a short, plain-language walkthrough. The table below maps each item the assignment asked for to exactly where it lives (paths are under `phon_book/`):
+
+| Assignment deliverable | Where to find it |
+|---|---|
+| 1. Test Cases (client & server) | `docs/TEST_CASES.xlsx` (full) · `docs/TEST_CASES.md` (summary) |
+| 2. Test Scenarios (client & server) | `docs/TEST_SCENARIOS.xlsx` (full) · `docs/TEST_SCENARIOS.md` (summary) |
+| 3. Manual vs Automated split | `docs/TEST_STRATEGY.md` + the *Execution Mode* column in the workbooks |
+| 4. Automated tests (Python) | `tests/` — run `./.venv/bin/pytest -q tests` |
+| 5. Test report & bugs found | `docs/TEST_REPORT.md` + `docs/BUG_REGISTER.md` (22 bugs) |
+
+**Before you run the tests:** they assert the *expected* behavior from the spec, so against the intentionally buggy app the result is **13 passed / 22 failed** — every failure is a documented bug, not a broken test (see `docs/TEST_REPORT.md`).
+
 ## Repository structure
 
 ```
