@@ -339,7 +339,34 @@ Typical focus areas:
 Boundary:
 - use this category for execution-environment and testability concerns rather than business-logic defects
 
+## Risk Inventory
+The full detail (description, requirement basis, observed behavior, impact, evidence, validation notes) is maintained in `QA_RISK_CATALOG.xlsx`. The summary below mirrors that workbook so the inventory is reviewable directly here.
+
+| Risk ID | Title | Category | Severity | Priority | Validation |
+|---|---|---|---|---|---|
+| RISK-001 | Login is specified by email but implemented with username | Requirement Compliance Risks | High | High | Confirmed |
+| RISK-002 | Contact operations are allowed without verified authentication | Authorization and Access Control Risks | Critical | High | Confirmed |
+| RISK-003 | Phonebook data is global and not linked to the authenticated account | Authorization and Access Control Risks | Critical | High | Code-confirmed / runtime not directly isolated |
+| RISK-004 | Duplicate email registration is allowed | Authentication Risks | High | High | Confirmed |
+| RISK-005 | Invalid email format is accepted during signup | Validation and Input Handling Risks | Medium | High | Confirmed |
+| RISK-006 | Missing required signup or login fields can crash the server | Response and Error Handling Risks | High | High | Confirmed |
+| RISK-007 | Duplicate username signup can crash the server instead of returning a clean error | Response and Error Handling Risks | High | High | Confirmed |
+| RISK-008 | Wrong input types can trigger unstable authentication behavior | Validation and Input Handling Risks | High | High | Confirmed |
+| RISK-009 | Logout can remove another active user from in-memory online state | Session and State Risks | High | High | Code-confirmed / runtime not isolated |
+| RISK-010 | Error responses are not guaranteed to follow the documented result contract | Response and Error Handling Risks | High | High | Confirmed |
+| RISK-011 | Malformed or invalid request data can require manual server restart | Operational and Environment Risks | Medium | High | Confirmed |
+| RISK-012 | Batch requests may partially succeed before a later command fails | Session and State Risks | High | Medium | Not yet validated |
+| RISK-013 | Persistent database state contaminates repeated test runs | Persistence and Data Consistency Risks | Medium | High | Known operational condition |
+| RISK-014 | Duplicate phone-number and duplicate-contact operations may surface as raw integrity failures | Persistence and Data Consistency Risks | High | Medium | Confirmed |
+| RISK-015 | Missing required contact-operation fields can cause hard failures | Validation and Input Handling Risks | High | High | Confirmed |
+| RISK-016 | Non-existing contact operations may not return graceful business errors | Contact Management Risks | High | High | Confirmed |
+| RISK-017 | Shared exception output may leak internal error details | Security Risks | Medium | Medium | Confirmed |
+| RISK-018 | Password hashing configuration may be weaker than ideal for modern expectations | Security Risks | Medium | Medium | Code-confirmed |
+| RISK-019 | Concurrent requests may interfere through shared mutable in-memory state | Concurrency and Multi-User Risks | Medium | Medium | Not yet validated |
+| RISK-020 | Concurrent duplicate-creation requests may produce unstable failure behavior | Concurrency and Multi-User Risks | Medium | Medium | Not yet validated |
+| RISK-021 | Phonebook tables are not initialized before the first phonebook operation | Persistence and Data Consistency Risks | High | High | Confirmed |
+
 ## Notes for Later Phases
 - The detailed risk inventory is maintained in `QA_RISK_CATALOG.xlsx`.
 - This Markdown file defines the structure, rules, and category framework for the risk catalog.
-- Later phases should map spreadsheet risks to scenarios and test cases.
+- Confirmed risks are traced to scenarios (`TEST_SCENARIOS.md`), cases (`TEST_CASES.md`), and defects (`BUG_REGISTER.md`).
